@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BlendClub — Field-side fuel for training</title>
+<meta name="description" content="Fresh performance smoothies built around your training schedule. Pre-order and pick up at the field."/>
+<meta name="theme-color" content="#1B4332"/>
+<link rel="icon" href="assets/blendclub-mark.svg" type="image/svg+xml"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+
+<!-- SKIP LINK -->
+<a href="#menu" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.cssText='position:fixed;top:0;left:0;width:auto;height:auto;padding:8px 16px;background:var(--gold);color:#fff;z-index:9999;font-size:14px;'">Skip to menu</a>
+
+<!-- HERO -->
+<section class="hero" id="top" aria-label="Hero">
+  <header class="site-header">
+    <a class="brand-lockup" href="#top" aria-label="BlendClub home">
+      <img src="assets/blendclub-mark.svg" alt="" width="46" height="46"/>
+      <span class="brand-wordmark">Blend<span>Club.</span></span>
+    </a>
+    <span class="brand-note">FIELD-SIDE FUEL</span>
+  </header>
+  <div class="hero-shell">
+  <div class="hero-inner">
+    <p class="hero-label">Cape Town Rugby Club · Est. 2026</p>
+    <h1 class="hero-title">Fuel that<br><span class="accent">shows up.</span></h1>
+    <p class="hero-sub">Fresh performance smoothies, timed around your training. Pre-order before the cutoff, then collect at the field.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="smoothScrollTo('menu')">Choose your blend →</button>
+      <button class="btn-ghost" onclick="smoothScrollTo('how')">How it works</button>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Blends</div>
+      </div>
+      <div>
+        <div class="stat-num">R40–65</div>
+        <div class="stat-label">Per cup</div>
+      </div>
+      <div>
+        <div class="stat-num">Tue & Sat</div>
+        <div class="stat-label">Pickup days</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-art" aria-label="BlendClub brand mark">
+    <img src="assets/blendclub-mark.svg" alt="BlendClub rugby and smoothie brand mark" width="512" height="512"/>
+    <div class="hero-art-label"><span>BUILT FOR</span><strong>TRAINING DAYS</strong></div>
+    <div class="hero-stamp">FRESH<br>BLENDED<br>FIELD SIDE</div>
+  </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    Tropical Rush <span>✦</span> Game Fuel <span>✦</span> Recovery Crusher <span>✦</span> Tropical Rush <span>✦</span> Game Fuel <span>✦</span> Recovery Crusher <span>✦</span> Tropical Rush <span>✦</span> Game Fuel <span>✦</span> Recovery Crusher <span>✦</span>
+  </div>
+</div>
+
+<!-- TAGLINE REVEAL -->
+<section class="tagline-section" aria-label="Mission statement">
+  <div class="tagline-inner">
+    <p class="tagline-label">Why BlendClub<br><span style="color:rgba(248,248,244,.35);">GOOD FUEL. NO DETOUR.</span></p>
+    <p class="tagline-text" id="taglineText">
+      No detours. No queues. Just the right fuel, at the right time, handed to you at training.
+    </p>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section" id="menu" aria-label="Smoothie menu">
+  <div class="menu-intro">
+    <div>
+      <p class="section-tag reveal">The menu</p>
+      <h2 class="section-title reveal">Three blends.<br>One better routine.</h2>
+    </div>
+    <p class="menu-note reveal">Tap a blend for ingredients, nutrition, and timing. Add it when you’re ready.</p>
+  </div>
+  <div class="menu-grid reveal" id="menuGrid"></div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how" aria-label="How to order">
+  <div class="how-inner">
+    <p class="section-tag reveal">How it works</p>
+    <h2 class="section-title reveal">Order fast.<br>Train ready.</h2>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Browse the menu</div>
+        <div class="step-desc">Pick one or more blends. Each is built for a specific training moment.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Order by Sunday</div>
+        <div class="step-desc">Orders close Sunday midnight for Tuesday pickup. Thursday midnight for Saturday.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Choose your pickup</div>
+        <div class="step-desc">Tuesday at training or Saturday on matchday. Just look for the cooler box.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Collect and crush</div>
+        <div class="step-desc">Pay cash or EFT. Drink. Train. Win.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq" aria-label="FAQ">
+  <div>
+    <p class="section-tag reveal">Questions</p>
+    <h2 class="section-title reveal">Straight answers.</h2>
+  </div>
+  <div id="faqList">
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)">What days can I pick up?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Tuesday at training and Saturday on matchdays. Choose when you order.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)">When do orders close?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Sunday midnight for Tuesday pickup. Thursday midnight for Saturday. No late orders accepted.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)">How do I pay?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Cash at pickup or EFT before collection. EFT orders open WhatsApp with your order details so you can send proof of payment directly.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)">What does the protein add-on include?<span class="faq-icon">+</span></div>
+      <div class="faq-a">A full scoop of Biogen Premium Iso-Whey in your choice of Chocolate or Strawberry. Adds roughly 18-21g of protein to your smoothie.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)">Are the smoothies made fresh?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Yes. Every smoothie is blended the morning of pickup and kept cold until collection. No pre-made batches sitting overnight.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)">What if I have allergies?<span class="faq-icon">+</span></div>
+      <div class="faq-a">Every smoothie lists its allergens in the detail view. Tap any blend to see the full ingredient and allergen breakdown before ordering.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section" aria-label="Order call to action">
+  <p class="section-tag reveal">Ready?</p>
+  <h2 class="cta-title reveal">Your smoothie is<br>waiting at training.</h2>
+  <p class="cta-sub reveal">Pre-order now and pick up at the field. No driving, no waiting.</p>
+  <button class="btn-primary reveal" onclick="smoothScrollTo('menu')" style="margin:0 auto;">See the menu →</button>
+  <p class="cta-note reveal">Orders close Sunday & Thursday midnight</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo"><img src="assets/blendclub-mark.svg" alt="" width="28" height="28"/>BLEND<span>CLUB</span></span>
+  <span class="footer-right">JujuB · Est. 2026 · Cape Town</span>
+</footer>
+
+<!-- CART BUBBLE -->
+<button class="cart-bubble" id="cartBubble" onclick="openCheckout()" aria-label="Open cart">
+  🛒 <span id="cartCount">0</span> items — R<span id="cartTotal">0</span>
+</button>
+
+<!-- SMOOTHIE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)" role="dialog" aria-modal="true" aria-labelledby="mName">
+  <button class="modal-close-btn" id="modalCloseBtn" onclick="closeModalDirect()" aria-label="Close">×</button>
+  <div class="modal ingredient-modal" id="modalBox">
+    <header class="ingredient-header">
+      <p class="ingredient-timing" id="mTiming"></p>
+      <div class="ingredient-heading">
+        <div>
+          <h2 class="modal-name" id="mName"></h2>
+          <p class="modal-tagline" id="mTagline"></p>
+        </div>
+        <div class="ingredient-price"><span>From</span><strong id="mHeaderPrice"></strong></div>
+      </div>
+    </header>
+    <div class="ingredient-body">
+      <section class="ingredient-section">
+        <h3 class="ingredient-section-title">Available size</h3>
+        <div class="modal-ings" id="mSizes"></div>
+      </section>
+      <section class="ingredient-section">
+        <h3 class="ingredient-section-title">What’s inside</h3>
+        <div class="modal-ings" id="mIngs"></div>
+      </section>
+      <div class="ingredient-split">
+        <section class="ingredient-section">
+          <h3 class="ingredient-section-title">Why it works</h3>
+          <div class="modal-ings" id="mBenefits"></div>
+        </section>
+        <section class="ingredient-section">
+          <h3 class="ingredient-section-title">Allergens</h3>
+          <div class="modal-ings" id="mAllergens"></div>
+        </section>
+      </div>
+      <section class="ingredient-section">
+        <h3 class="ingredient-section-title">Nutrition per serving</h3>
+        <div id="mNutrition"></div>
+      </section>
+      <div id="mNote" class="ingredient-note">Beta-alanine may cause a harmless tingling sensation on the skin. Totally normal.</div>
+    </div>
+    <div class="modal-footer">
+      <div class="modal-price" id="mPrice"></div>
+      <button class="btn-primary" onclick="addFromModal()">+ Add to order</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay" onclick="closeCheckoutModal(event)" role="dialog" aria-modal="true" aria-label="Checkout">
+  <button class="modal-close-btn" id="checkoutCloseBtn" onclick="closeCheckoutDirect()" aria-label="Close checkout">×</button>
+  <div class="modal checkout-modal" id="checkoutBox">
+    <header class="checkout-header">
+      <p class="checkout-eyebrow">BlendClub order</p>
+      <h2 class="checkout-title">Almost on the field.</h2>
+      <p class="checkout-subtitle">Confirm your details and we’ll have it ready for collection.</p>
+    </header>
+    <div class="checkout-body">
+      <section class="checkout-summary" aria-label="Order summary">
+        <div class="checkout-items" id="checkoutItems"></div>
+        <div class="checkout-total">
+          <span>Order total</span>
+          <strong id="checkoutTotal">R0</strong>
+        </div>
+      </section>
+
+      <div class="checkout-field">
+        <label class="checkout-label" for="checkoutName">Your name</label>
+        <input class="order-input" type="text" placeholder="e.g. Siya" id="checkoutName" autocomplete="name"/>
+      </div>
+
+      <fieldset class="checkout-field">
+        <legend class="checkout-label">Pickup day</legend>
+        <div class="checkout-options">
+          <button type="button" class="pickup-opt active" id="pickupTue" onclick="selectPickup('tuesday')"><span class="checkout-choice-title">Tuesday</span><span class="checkout-choice-detail">At training</span></button>
+          <button type="button" class="pickup-opt" id="pickupSat" onclick="selectPickup('saturday')"><span class="checkout-choice-title">Saturday</span><span class="checkout-choice-detail">Matchday pickup</span></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="checkout-field">
+        <legend class="checkout-label">Payment</legend>
+        <div class="checkout-options">
+          <button type="button" class="pay-opt active" id="payCash" onclick="selectPay('cash')"><span class="checkout-choice-title">Cash</span><span class="checkout-choice-detail">Pay on collection</span></button>
+          <button type="button" class="pay-opt" id="payEFT" onclick="selectPay('eft')"><span class="checkout-choice-title">EFT</span><span class="checkout-choice-detail">Pay before pickup</span></button>
+        </div>
+      </fieldset>
+
+      <div class="payment-notice payment-notice--cash" id="cashInstructions"><strong>Cash at pickup.</strong> Bring exact change if possible and look for the cooler box.</div>
+      <div class="payment-notice payment-notice--eft" id="eftInstructions" style="display:none;"><strong>EFT before pickup.</strong><span class="bank-detail">FNB · J Cedrass<br/>Acc: 63053860087 · Ref: Your name</span>Send proof of payment via WhatsApp after ordering.</div>
+
+      <button id="placeOrderBtn" class="btn-primary checkout-submit" onclick="placeOrder()">Place order →</button>
+      <p class="checkout-note" id="pickupNote">Pickup at training · Pay on collection</p>
+    </div>
+  </div>
+</div>
+
+<!-- FLAVOUR MODAL -->
+<div class="modal-overlay" id="flavourOverlay" onclick="closeFlavourModal(event)" role="dialog" aria-modal="true">
+  <button class="modal-close-btn" id="flavourCloseBtn" onclick="document.body.classList.remove('no-scroll');document.getElementById('flavourOverlay').classList.remove('open');document.getElementById('flavourCloseBtn').style.display='none';" aria-label="Close">×</button>
+  <div class="modal" style="max-width:360px;text-align:center;">
+    <div id="flavourContent"></div>
+  </div>
+</div>
+
+<!-- CONFIRMATION -->
+<div class="modal-overlay" id="confirmationOverlay" role="dialog" aria-modal="true" aria-label="Order confirmation">
+  <div class="modal" id="confirmationBox" style="max-width:460px;background:var(--dark);text-align:center;">
+    <div id="confirmationContent"></div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

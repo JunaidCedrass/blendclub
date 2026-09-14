@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">BlendClub fuel mark</title>
+  <desc id="desc">A rugby ball and smoothie blade combined into a circular brand mark.</desc>
+  <circle cx="256" cy="256" r="236" fill="#1B4332" stroke="#52B788" stroke-width="3"/>
+  <circle cx="256" cy="256" r="196" stroke="#F8F8F4" stroke-opacity=".18" stroke-width="2"/>
+  <path d="M180 115C135 153 111 205 111 256C111 307 135 359 180 397" stroke="#B8860B" stroke-width="18" stroke-linecap="round"/>
+  <path d="M332 115C377 153 401 205 401 256C401 307 377 359 332 397" stroke="#B8860B" stroke-width="18" stroke-linecap="round"/>
+  <path d="M256 106C188 146 151 194 151 256C151 318 188 366 256 406C324 366 361 318 361 256C361 194 324 146 256 106Z" fill="#F8F8F4"/>
+  <path d="M256 151V361M215 183L297 329M297 183L215 329" stroke="#1B4332" stroke-width="16" stroke-linecap="round"/>
+  <path d="M256 202C285 162 324 155 342 166C334 202 305 229 266 238" fill="#52B788"/>
+  <path d="M256 202C227 162 188 155 170 166C178 202 207 229 246 238" fill="#52B788"/>
+  <path d="M256 202C252 231 252 248 256 269" stroke="#1B4332" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="11" fill="#B8860B"/>
+</svg>
