@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BlendClub — Field-side fuel for training</title>
+<title>BlendClub — Fresh Performance Smoothies</title>
 <meta name="description" content="Fresh performance smoothies built around your training schedule. Pre-order and pick up at the field."/>
 <meta name="theme-color" content="#1B4332"/>
 <link rel="icon" href="assets/blendclub-mark.svg" type="image/svg+xml"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/css/style.css?v=20260915-mobile-ingredients"/>
 </head>
 <body>
 
@@ -24,13 +24,16 @@
       <img src="assets/blendclub-mark.svg" alt="BlendClub Mark" width="46" height="46"/>
       <span class="brand-wordmark">Blend<span>Club.</span></span>
     </a>
-    <span class="brand-note">FIELD-SIDE FUEL</span>
+    <span class="brand-note">FRESH FUEL, YOUR WAY</span>
   </header>
   <div class="hero-shell">
   <div class="hero-inner">
-    <p class="hero-label">Cape Town Rugby Club · Est. 2026</p>
-    <h1 class="hero-title">Fuel that<br><span class="accent">shows up.</span></h1>
-    <p class="hero-sub">Fresh performance smoothies, timed around your training. Pre-order before the cutoff, then collect at the field.</p>
+    <p class="hero-label">Cape Town · Est. 2026</p>
+    <h1 class="hero-title">Smoothies<br><span class="accent">with purpose.</span></h1>
+    <p class="hero-sub">Fruit-led blends, practical nutrition, and fresh ingredients timed around your day.</p>
+    <div class="hero-nutrition-points" aria-label="Smoothie nutrition highlights">
+      <span>Fruit-led</span><span>Protein-ready</span><span>Freshly blended</span>
+    </div>
     <div class="hero-actions">
       <button class="btn-primary" onclick="smoothScrollTo('menu')">Choose your blend →</button>
       <button class="btn-ghost" onclick="smoothScrollTo('how')">How it works</button>
@@ -45,14 +48,14 @@
         <div class="stat-label">Per cup</div>
       </div>
       <div>
-        <div class="stat-num">Tue & Sat</div>
-        <div class="stat-label">Pickup days</div>
+        <div class="stat-num">3 ways</div>
+        <div class="stat-label">To get your blend</div>
       </div>
     </div>
   </div>
   <div class="hero-art" aria-label="BlendClub brand mark">
     <img src="assets/blendclub-mark.svg" alt="BlendClub rugby and smoothie brand mark" width="512" height="512"/>
-    <div class="hero-art-label"><span>BUILT FOR</span><strong>TRAINING DAYS</strong></div>
+    <div class="hero-art-label"><span>BUILT FOR</span><strong>YOUR DAY</strong></div>
     <div class="hero-stamp">FRESH<br>BLENDED<br>FIELD SIDE</div>
   </div>
   </div>
@@ -70,8 +73,31 @@
   <div class="tagline-inner">
     <p class="tagline-label">Why BlendClub<br><span style="color:rgba(248,248,244,.35);">GOOD FUEL. NO DETOUR.</span></p>
     <p class="tagline-text" id="taglineText">
-      No detours. No queues. Just the right fuel, at the right time, handed to you at training.
+      No detours. No queues. Just the right fuel.
     </p>
+  </div>
+</section>
+
+<!-- PARTNER SPOTLIGHT -->
+<section class="partner-spotlight" id="pgf" aria-labelledby="pgfTitle">
+  <div class="partner-spotlight-inner">
+    <div class="partner-brand-lockup" aria-label="PGF Smoothie Blends in partnership with BlendClub">
+      <span class="partner-logo-symbol" aria-hidden="true"><i></i><b></b></span>
+      <span class="partner-brand-mark">PGF</span>
+      <span class="partner-brand-subtitle">SMOOTHIE BLENDS</span>
+      <span class="partner-brand-partner">IN PARTNERSHIP WITH BLENDCLUB</span>
+    </div>
+    <div class="partner-spotlight-copy">
+      <p class="section-tag">BlendClub × PGF</p>
+      <h2 id="pgfTitle">Good fruit.<br>Better routine.</h2>
+      <p>The fruit and vegetables in our partner smoothie range are provided by PGF, in partnership with BlendClub. Their ready-to-blend Beet and Green packs are coming soon for your freezer.</p>
+      <button class="btn-primary" onclick="smoothScrollTo('partnerRangeTitle')">Explore the range <span aria-hidden="true">↓</span></button>
+    </div>
+    <div class="partner-logo-card" aria-label="PGF Smoothie Blends logo">
+      <span class="partner-logo-symbol" aria-hidden="true"><i></i><b></b></span>
+      <strong>PGF</strong>
+      <span>SMOOTHIE BLENDS</span>
+    </div>
   </div>
 </section>
 
@@ -85,6 +111,16 @@
     <p class="menu-note reveal">Tap a blend for ingredients, nutrition, and timing. Add it when you’re ready.</p>
   </div>
   <div class="menu-grid reveal" id="menuGrid"></div>
+  <div class="partner-range reveal" aria-labelledby="partnerRangeTitle">
+    <div class="partner-range-heading">
+      <div>
+        <p class="section-tag">Partner range</p>
+        <h2 class="partner-range-title" id="partnerRangeTitle">PGF, coming to the freezer.</h2>
+      </div>
+      <p class="menu-note">Fruit and vegetables provided by PGF in partnership with BlendClub. Sales open here soon.</p>
+    </div>
+    <div class="partner-grid" id="partnerGrid"></div>
+  </div>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -101,12 +137,12 @@
       <div class="step reveal">
         <div class="step-num">02</div>
         <div class="step-title">Order by Sunday</div>
-        <div class="step-desc">Orders close Sunday midnight for Tuesday pickup. Thursday midnight for Saturday.</div>
+        <div class="step-desc">Place your order before the weekly cutoff so we can blend everything fresh for collection or delivery.</div>
       </div>
       <div class="step reveal">
         <div class="step-num">03</div>
         <div class="step-title">Choose your pickup</div>
-        <div class="step-desc">Tuesday at training or Saturday on matchday. Just look for the cooler box.</div>
+        <div class="step-desc">Collect from home, meet us at Friday Touchies, or choose delivery to your address.</div>
       </div>
       <div class="step reveal">
         <div class="step-num">04</div>
@@ -126,11 +162,11 @@
   <div id="faqList">
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)">What days can I pick up?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Tuesday at training and Saturday on matchdays. Choose when you order.</div>
+      <div class="faq-a">Choose home pickup, Friday Touchies collection, or delivery when you place your order.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)">When do orders close?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Sunday midnight for Tuesday pickup. Thursday midnight for Saturday. No late orders accepted.</div>
+      <div class="faq-a">Orders close at the weekly cutoff shown when you order. This gives us time to blend everything fresh.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)">How do I pay?<span class="faq-icon">+</span></div>
@@ -154,10 +190,10 @@
 <!-- FINAL CTA -->
 <section class="cta-section" aria-label="Order call to action">
   <p class="section-tag reveal">Ready?</p>
-  <h2 class="cta-title reveal">Your smoothie is<br>waiting at training.</h2>
-  <p class="cta-sub reveal">Pre-order now and pick up at the field. No driving, no waiting.</p>
+  <h2 class="cta-title reveal">Your smoothie is<br>ready when you are.</h2>
+  <p class="cta-sub reveal">Pre-order for home pickup, Friday Touchies, or local delivery.</p>
   <button class="btn-primary reveal" onclick="smoothScrollTo('menu')" style="margin:0 auto;">See the menu →</button>
-  <p class="cta-note reveal">Orders close Sunday & Thursday midnight</p>
+  <p class="cta-note reveal">Freshly blended for collection or delivery</p>
 </section>
 
 <!-- FOOTER -->
@@ -182,7 +218,7 @@
           <h2 class="modal-name" id="mName"></h2>
           <p class="modal-tagline" id="mTagline"></p>
         </div>
-        <div class="ingredient-price"><span>From</span><strong id="mHeaderPrice"></strong></div>
+        <div class="ingredient-price"><strong id="mHeaderPrice"></strong></div>
       </div>
     </header>
     <div class="ingredient-body">
@@ -240,13 +276,60 @@
         <input class="order-input" type="text" placeholder="e.g. Siya" id="checkoutName" autocomplete="name"/>
       </div>
 
-      <fieldset class="checkout-field">
-        <legend class="checkout-label">Pickup day</legend>
-        <div class="checkout-options">
-          <button type="button" class="pickup-opt active" id="pickupTue" onclick="selectPickup('tuesday')"><span class="checkout-choice-title">Tuesday</span><span class="checkout-choice-detail">At training</span></button>
-          <button type="button" class="pickup-opt" id="pickupSat" onclick="selectPickup('saturday')"><span class="checkout-choice-title">Saturday</span><span class="checkout-choice-detail">Matchday pickup</span></button>
-        </div>
-      </fieldset>
+     <fieldset class="checkout-field">
+  <legend class="checkout-label">Collection or delivery</legend>
+
+  <div class="checkout-options">
+    <button type="button" class="pickup-opt active" id="pickupHome"
+      onclick="selectPickup('home')">
+      <span class="checkout-choice-title">Home pickup</span>
+      <span class="checkout-choice-detail">Collect from Juju</span>
+    </button>
+
+    <button type="button" class="pickup-opt" id="pickupTouchies"
+      onclick="selectPickup('touchies')">
+      <span class="checkout-choice-title">Friday Touchies</span>
+      <span class="checkout-choice-detail">Collect on Friday</span>
+    </button>
+
+    <button type="button" class="pickup-opt" id="pickupDelivery"
+      onclick="selectPickup('delivery')">
+      <span class="checkout-choice-title">Delivery</span>
+      <span class="checkout-choice-detail">Extra delivery fee</span>
+    </button>
+  </div>
+  <div class="checkout-field" id="deliveryFields" style="display:none;">
+  <label class="checkout-label" for="checkoutPhone">WhatsApp number</label>
+  <input class="order-input" type="tel"
+    placeholder="e.g. 082 123 4567"
+    id="checkoutPhone"
+    autocomplete="tel"/>
+
+  <label class="checkout-label" for="checkoutAddress" style="margin-top:14px;">
+    Delivery address
+  </label>
+  <textarea class="order-input"
+    placeholder="Enter your delivery address"
+    id="checkoutAddress"
+    rows="3"></textarea>
+  <label class="checkout-label" for="deliveryZone" style="margin-top:14px;">
+    Delivery area
+  </label>
+  <select class="order-input" id="deliveryZone" onchange="updateDeliveryZone()">
+    <option value="">Select your delivery area</option>
+    <option value="near">Nearby area - R15</option>
+    <option value="mid">Local area - R25</option>
+    <option value="far">Outer area - R35</option>
+  </select>
+  <p id="deliveryResult" class="checkout-note"></p>
+  <div class="price-breakdown" id="priceBreakdown" hidden>
+    <div><span>Smoothie subtotal</span><strong id="subtotalAmount">R0</strong></div>
+    <div><span>Delivery area</span><strong id="distanceAmount">Not selected</strong></div>
+    <div><span>Delivery fee</span><strong id="deliveryFeeAmount">R0</strong></div>
+    <div class="price-breakdown-total"><span>Final total</span><strong id="finalTotalAmount">R0</strong></div>
+  </div>
+</div>
+</fieldset>
 
       <fieldset class="checkout-field">
         <legend class="checkout-label">Payment</legend>
@@ -260,14 +343,14 @@
       <div class="payment-notice payment-notice--eft" id="eftInstructions" style="display:none;"><strong>EFT before pickup.</strong><span class="bank-detail">FNB · J Cedrass<br/>Acc: 63053860087 · Ref: Your name</span>Send proof of payment via WhatsApp after ordering.</div>
 
       <button id="placeOrderBtn" class="btn-primary checkout-submit" onclick="placeOrder()">Place order →</button>
-      <p class="checkout-note" id="pickupNote">Pickup at training · Pay on collection</p>
+      <p class="checkout-note" id="pickupNote">Home pickup · Pay on collection</p>
     </div>
   </div>
 </div>
 
 <!-- FLAVOUR MODAL -->
 <div class="modal-overlay" id="flavourOverlay" onclick="closeFlavourModal(event)" role="dialog" aria-modal="true">
-  <button class="modal-close-btn" id="flavourCloseBtn" onclick="document.body.classList.remove('no-scroll');document.getElementById('flavourOverlay').classList.remove('open');document.getElementById('flavourCloseBtn').style.display='none';" aria-label="Close">×</button>
+  <button class="modal-close-btn" id="flavourCloseBtn" onclick="unlockPage();document.getElementById('flavourOverlay').classList.remove('open');document.getElementById('flavourCloseBtn').style.display='none';" aria-label="Close">×</button>
   <div class="modal" style="max-width:360px;text-align:center;">
     <div id="flavourContent"></div>
   </div>
@@ -280,6 +363,6 @@
   </div>
 </div>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=20260915-mobile-menu-fix" defer></script>
 </body>
 </html>
