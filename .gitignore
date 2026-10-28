@@ -7,3 +7,7 @@ Thumbs.db
 
 # Local tooling and debug output
 .qodo/
+
+# Dependencies and generated builds
+node_modules/
+dist/

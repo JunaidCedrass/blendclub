@@ -1,12 +1,34 @@
 # BlendClub
 
-A static BlendClub smoothie ordering page for field-side pickup.
+Static BlendClub smoothie ordering page for field-side pickup.
 
-## Structure
+## Project structure
 
-- `index.html` - page markup
-- `assets/css/style.css` - site styles
-- `assets/js/main.js` - menu, cart, checkout, and modal behavior
-- `assets/blendclub-mark.svg` - brand mark
+```text
+BlendClub/
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+├── .gitignore
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   └── images/
+│       └── blendclub-logo.jpeg
+└── apps-script/
+	└── Code.gs
+```
 
-Open `index.html` directly in a browser, or serve the folder with any static web server.
+`apps-script/Code.gs` contains the Google Apps Script order endpoint used by the checkout flow.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Open the Vite URL shown in the terminal.
