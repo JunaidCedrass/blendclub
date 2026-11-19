@@ -32,3 +32,10 @@ npm run dev
 ```
 
 Open the Vite URL shown in the terminal.
+
+## Netlify deployment
+
+Connect the repository to Netlify and deploy the branch containing these files.
+The included `netlify.toml` runs `npm run build` and publishes `dist`. If the
+site has build settings configured in the Netlify dashboard, check that they
+also use that build command and publish directory.

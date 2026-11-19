@@ -539,4 +539,14 @@ function showConfirmation(order){
     <button class="btn-primary" style="width:100%;padding:14px;border-radius:8px;" onclick="document.getElementById('confirmationOverlay').classList.remove('open')">Done</button>`;
 }
 
+// Inline event handlers in the HTML and generated cards need these module functions.
+Object.assign(window, {
+  smoothScrollTo, toggleFaq, openModal, handleMenuCardKeydown,
+  handlePartnerCardTap, handlePartnerCardKeydown, addToCart,
+  showProteinStep, showFlavourStep, addFlavourToCart, removeFromCart,
+  renderCheckoutItems, unlockPage, closeModal, closeModalDirect, addFromModal,
+  openCheckout, closeCheckoutModal, closeCheckoutDirect, closeFlavourModal,
+  selectPickup, selectPay, updateDeliveryZone, placeOrder
+});
+
 renderMenu();
