@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/style.css?v=20261119-clear-cups"/>
+<link rel="stylesheet" href="assets/css/style.css?v=20261119-delivery"/>
 </head>
 <body>
 
@@ -168,27 +168,27 @@
   </div>
   <div id="faqList">
     <div class="faq-item reveal">
-      <div class="faq-q" onclick="toggleFaq(this)">What days can I pick up?<span class="faq-icon">+</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">What days can I pick up<span class="faq-icon">+</span></div>
       <div class="faq-a">Choose home pickup, Friday collection, or delivery when you place your order.</div>
     </div>
     <div class="faq-item reveal">
-      <div class="faq-q" onclick="toggleFaq(this)">When do orders close?<span class="faq-icon">+</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">When do orders close<span class="faq-icon">+</span></div>
       <div class="faq-a">Orders close at the weekly cutoff shown when you order. This gives us time to blend everything fresh.</div>
     </div>
     <div class="faq-item reveal">
-      <div class="faq-q" onclick="toggleFaq(this)">How do I pay?<span class="faq-icon">+</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">How do I pay<span class="faq-icon">+</span></div>
       <div class="faq-a">Cash at pickup or EFT before collection. EFT orders open WhatsApp with your order details so you can send proof of payment directly.</div>
     </div>
     <div class="faq-item reveal">
-      <div class="faq-q" onclick="toggleFaq(this)">What does the protein add-on include?<span class="faq-icon">+</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">What does the protein add-on include<span class="faq-icon">+</span></div>
       <div class="faq-a">A full scoop of Biogen Premium Iso-Whey in your choice of Strawberry or Vanilla. Chocolate is coming soon. Adds roughly 18-21g of protein to your smoothie.</div>
     </div>
     <div class="faq-item reveal">
-      <div class="faq-q" onclick="toggleFaq(this)">Are the smoothies made fresh?<span class="faq-icon">+</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">Are the smoothies made fresh<span class="faq-icon">+</span></div>
       <div class="faq-a">Yes. Every smoothie is blended the morning of pickup and kept cold until collection. No pre-made batches sitting overnight.</div>
     </div>
     <div class="faq-item reveal">
-      <div class="faq-q" onclick="toggleFaq(this)">What if I have allergies?<span class="faq-icon">+</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">What if I have allergies<span class="faq-icon">+</span></div>
       <div class="faq-a">Every smoothie lists its allergens in the detail view. Tap any blend to see the full ingredient and allergen breakdown before ordering.</div>
     </div>
   </div>
@@ -197,7 +197,7 @@
 <!-- FINAL CTA -->
 <section class="cta-section" aria-label="Order call to action">
   <img class="cta-logo" src="assets/images/blendclub-logo-badge.png" alt="" width="96" height="96"/>
-  <p class="section-tag reveal">Ready?</p>
+  <p class="section-tag reveal">Ready</p>
   <h2 class="cta-title reveal">Your smoothie is<br>ready when you are.</h2>
   <p class="cta-sub reveal">Pre-order for home pickup, Friday collection, or local delivery.</p>
   <button class="btn-primary reveal" onclick="smoothScrollTo('menu')" style="margin:0 auto;">See the menu →</button>
@@ -274,13 +274,13 @@
     <header class="checkout-header">
       <p class="checkout-eyebrow">BlendClub order</p>
       <h2 class="checkout-title">Almost on the field.</h2>
-      <p class="checkout-subtitle">Confirm your details and we’ll have it ready for collection.</p>
+      <p class="checkout-subtitle">Confirm your details for collection or delivery.</p>
     </header>
     <div class="checkout-body">
       <section class="checkout-summary" aria-label="Order summary">
         <div class="checkout-items" id="checkoutItems"></div>
         <div class="checkout-total">
-          <span>Order total</span>
+          <span id="checkoutTotalLabel">Order total</span>
           <strong id="checkoutTotal">R0</strong>
         </div>
       </section>
@@ -294,48 +294,46 @@
   <legend class="checkout-label">Collection or delivery</legend>
 
   <div class="checkout-options">
-    <button type="button" class="pickup-opt active" id="pickupHome"
+    <button type="button" class="pickup-opt active" id="pickupHome" aria-pressed="true"
       onclick="selectPickup('home')">
       <span class="checkout-choice-title">Home pickup</span>
       <span class="checkout-choice-detail">Collect from Juju</span>
     </button>
 
-    <button type="button" class="pickup-opt" id="pickupFriday"
+    <button type="button" class="pickup-opt" id="pickupFriday" aria-pressed="false"
       onclick="selectPickup('friday')">
       <span class="checkout-choice-title">Friday collection</span>
       <span class="checkout-choice-detail">Collect on Friday</span>
     </button>
 
-    <button type="button" class="pickup-opt" id="pickupDelivery"
+    <button type="button" class="pickup-opt" id="pickupDelivery" aria-pressed="false"
       onclick="selectPickup('delivery')">
       <span class="checkout-choice-title">Delivery</span>
-      <span class="checkout-choice-detail">Extra delivery fee</span>
+      <span class="checkout-choice-detail">Fee based on area</span>
     </button>
   </div>
-  <div class="checkout-field" id="deliveryFields" style="display:none;">
-  <label class="checkout-label" for="checkoutPhone">WhatsApp number</label>
+  <div class="delivery-fields" id="deliveryFields" hidden>
+  <p class="delivery-intro">Enter your address and select your delivery area. We'll check the address before delivery.</p>
+  <label class="checkout-label" for="checkoutPhone">WhatsApp number (optional)</label>
   <input class="order-input" type="tel"
     placeholder="e.g. 082 123 4567"
     id="checkoutPhone"
     autocomplete="tel"/>
 
-  <label class="checkout-label" for="checkoutAddress" style="margin-top:14px;">
-    Delivery address
-  </label>
+  <label class="checkout-label delivery-address-label" for="checkoutAddress">Delivery address</label>
   <textarea class="order-input"
-    placeholder="Enter your delivery address"
+    placeholder="Street address, suburb and city"
     id="checkoutAddress"
-    rows="3"></textarea>
-  <label class="checkout-label" for="deliveryZone" style="margin-top:14px;">
-    Delivery area
-  </label>
+    autocomplete="street-address"
+    rows="2"></textarea>
+  <label class="checkout-label delivery-address-label" for="deliveryZone">Delivery area</label>
   <select class="order-input" id="deliveryZone" onchange="updateDeliveryZone()">
     <option value="">Select your delivery area</option>
     <option value="near">Nearby area - R15</option>
     <option value="mid">Local area - R25</option>
     <option value="far">Outer area - R35</option>
   </select>
-  <p id="deliveryResult" class="checkout-note"></p>
+  <p id="deliveryResult" class="delivery-result" role="status" aria-live="polite"></p>
   <div class="price-breakdown" id="priceBreakdown" hidden>
     <div><span>Smoothie subtotal</span><strong id="subtotalAmount">R0</strong></div>
     <div><span>Delivery area</span><strong id="distanceAmount">Not selected</strong></div>
@@ -348,13 +346,13 @@
       <fieldset class="checkout-field">
         <legend class="checkout-label">Payment</legend>
         <div class="checkout-options">
-          <button type="button" class="pay-opt active" id="payCash" onclick="selectPay('cash')"><span class="checkout-choice-title">Cash</span><span class="checkout-choice-detail">Pay on collection</span></button>
-          <button type="button" class="pay-opt" id="payEFT" onclick="selectPay('eft')"><span class="checkout-choice-title">EFT</span><span class="checkout-choice-detail">Pay before pickup</span></button>
+          <button type="button" class="pay-opt active" id="payCash" onclick="selectPay('cash')"><span class="checkout-choice-title">Cash</span><span class="checkout-choice-detail" id="cashChoiceDetail">Pay on collection</span></button>
+          <button type="button" class="pay-opt" id="payEFT" onclick="selectPay('eft')"><span class="checkout-choice-title">EFT</span><span class="checkout-choice-detail">Pay before fulfilment</span></button>
         </div>
       </fieldset>
 
       <div class="payment-notice payment-notice--cash" id="cashInstructions"><strong>Cash at pickup.</strong> Bring exact change if possible and look for the cooler box.</div>
-      <div class="payment-notice payment-notice--eft" id="eftInstructions" style="display:none;"><strong>EFT before pickup.</strong><span class="bank-detail">FNB · J Cedrass<br/>Acc: 909341 · Ref: Your name</span>Send proof of payment via WhatsApp after ordering.</div>
+      <div class="payment-notice payment-notice--eft" id="eftInstructions" style="display:none;"><strong>EFT before collection or delivery.</strong><span class="bank-detail">FNB · J Cedrass<br/>Acc (Easy): 63053860087<br/>Branch: 210046 · Ref: Your name</span>Send proof of payment via WhatsApp after ordering.</div>
 
       <button id="placeOrderBtn" class="btn-primary checkout-submit" onclick="placeOrder()">Place order →</button>
       <p class="checkout-note" id="pickupNote">Home pickup · Pay on collection</p>

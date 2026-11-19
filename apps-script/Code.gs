@@ -6,6 +6,9 @@ function doGet(e) {
     var result = calculateDelivery(e.parameter.address);
 
     if (callback) {
+      if (!/^blendclubDeliveryQuote\d+$/.test(callback)) {
+        return jsonResponse({ available: false, message: 'Invalid callback.' });
+      }
       return ContentService
         .createTextOutput(callback + '(' + JSON.stringify(result) + ')')
         .setMimeType(ContentService.MimeType.JAVASCRIPT);
@@ -30,6 +33,9 @@ function doPost(e) {
 }
 
 function calculateDelivery(address) {
+  if (!address || !address.trim()) {
+    return { available: false, message: 'Enter your delivery address first.' };
+  }
   var properties = PropertiesService.getScriptProperties();
   var origin = properties.getProperty('DELIVERY_ORIGIN');
   var apiKey = properties.getProperty('GOOGLE_MAPS_API_KEY');
@@ -41,26 +47,36 @@ function calculateDelivery(address) {
     };
   }
 
-  var response = UrlFetchApp.fetch(
-    'https://routes.googleapis.com/directions/v2:computeRoutes',
-    {
-      method: 'post',
-      contentType: 'application/json',
-      headers: {
-        'X-Goog-Api-Key': apiKey,
-        'X-Goog-FieldMask': 'routes.distanceMeters'
-      },
-      payload: JSON.stringify({
-        origin: { address: origin },
-        destination: { address: address },
-        travelMode: 'DRIVE',
-        routingPreference: 'TRAFFIC_AWARE'
-      }),
-      muteHttpExceptions: true
+  var response;
+  var result;
+  try {
+    response = UrlFetchApp.fetch(
+      'https://routes.googleapis.com/directions/v2:computeRoutes',
+      {
+        method: 'post',
+        contentType: 'application/json',
+        headers: {
+          'X-Goog-Api-Key': apiKey,
+          'X-Goog-FieldMask': 'routes.distanceMeters'
+        },
+        payload: JSON.stringify({
+          origin: { address: origin },
+          destination: { address: address },
+          travelMode: 'DRIVE',
+          routingPreference: 'TRAFFIC_AWARE'
+        }),
+        muteHttpExceptions: true
+      }
+    );
+    if (response.getResponseCode() !== 200) {
+      console.error('Routes API request failed with status ' + response.getResponseCode());
+      return { available: false, message: 'Could not check delivery right now. Please try again later.' };
     }
-  );
-
-  var result = JSON.parse(response.getContentText());
+    result = JSON.parse(response.getContentText());
+  } catch (err) {
+    console.error('Delivery route lookup failed: ' + String(err));
+    return { available: false, message: 'Could not check delivery right now. Please try again later.' };
+  }
 
   if (!result.routes || !result.routes.length) {
     return {
@@ -69,14 +85,19 @@ function calculateDelivery(address) {
     };
   }
 
-  var distanceKm = Math.round(result.routes[0].distanceMeters / 100) / 10;
+  var distanceMeters = result.routes[0].distanceMeters;
+  if (typeof distanceMeters !== 'number' || !isFinite(distanceMeters) || distanceMeters < 0) {
+    console.error('Routes API returned an invalid distance.');
+    return { available: false, message: 'Could not check delivery right now. Please try again later.' };
+  }
+  var distanceKm = distanceMeters / 1000;
   var fee;
 
-  if (distanceKm <= 5) {
+  if (distanceMeters <= 5000) {
     fee = 15;
-  } else if (distanceKm <= 10) {
+  } else if (distanceMeters <= 10000) {
     fee = 25;
-  } else if (distanceKm <= 15) {
+  } else if (distanceMeters <= 15000) {
     fee = 35;
   } else {
     return {

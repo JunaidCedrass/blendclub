@@ -36,7 +36,6 @@ document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 
 /* DATA */
 const WHATSAPP_NUMBER = "27609616087";
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxD-tIjZsk4JFN7LQoVr2SLcGSZXplmC6G2n2Tc3Z5qiUCFObqpIoomaylrU9UeIibiMQ/exec';
 
 const smoothies = [
   { id:3,
@@ -48,10 +47,10 @@ const smoothies = [
     benefits:["Immune boost from Vitamin C","Aids digestion","Natural hydration"],
     allergens:["Dairy"],
     sizes:["350ml","500ml (Coming Soon)"],
-    nutrition:{protein:"5-7g",sugar:"22-25g",calories:"200ñ230 kcal",carbs:"30ñ35g",fat:"3ñ4g",purpose:"General health drink"},
+    nutrition:{protein:"5-7g",sugar:"22-25g",calories:"200‚Äì230 kcal",carbs:"30‚Äì35g",fat:"3‚Äì4g",purpose:"General health drink"},
     color:"#B8860B",cls:"card-c1" },
   { id:1,
-    timing:"60ñ90 min before training/kickoff",
+    timing:"60‚Äì90 min before training/kickoff",
     name:"Game Fuel",
     tagline:"Fast carbs. Fast start.",
     price:40, proteinPrice:20,
@@ -60,7 +59,7 @@ const smoothies = [
     benefits:["Fast-release energy","Delays muscle fatigue","Sustained performance"],
     allergens:["Dairy","Gluten"],
     sizes:["350ml","500ml (Coming Soon)"],
-    nutrition:{protein:"14g base / 24g with protein","sugar":"12ñ15g",calories:"320ñ375 kcal",carbs:"30ñ35g",fat:"8ñ10g",purpose:"Pre-training energy"},
+    nutrition:{protein:"14g base / 24g with protein","sugar":"12‚Äì15g",calories:"320‚Äì375 kcal",carbs:"30‚Äì35g",fat:"8‚Äì10g",purpose:"Pre-training energy"},
     color:"#B8860B",cls:"card-c2" },
   { id:2,
     timing:"Within 30 min post-training/match",
@@ -72,7 +71,7 @@ const smoothies = [
     benefits:["Muscle repair and growth","Replenishes energy stores","Reduces post-training soreness"],
     allergens:["Dairy","Peanuts"],
     sizes:["350ml","500ml (Coming Soon)"],
-    nutrition:{protein:"30ñ33g",sugar:"13ñ15g",calories:"360ñ400 kcal",carbs:"25ñ30g",fat:"8ñ10g",purpose:"Muscle repair and recovery"},
+    nutrition:{protein:"30‚Äì33g",sugar:"13‚Äì15g",calories:"360‚Äì400 kcal",carbs:"25‚Äì30g",fat:"8‚Äì10g",purpose:"Muscle repair and recovery"},
     color:"#B8860B",cls:"card-c3" },
 ];
 
@@ -90,7 +89,7 @@ const partnerProducts = [
 ];
 
 let cart={}, cartPrices={}, activeModal=null, selectedPayment='cash', selectedPickup='home';
-let deliveryDistance='', deliveryFee=0, deliveryQuoteChecked=false, deliveryZone='';
+let deliveryDistance='', deliveryFee=0, deliveryQuoteChecked=false;
 let pageLockCount=0, lockedScrollY=0;
 
 function lockPage(){
@@ -239,8 +238,8 @@ function showProteinStep(id){
   document.getElementById('flavourOverlay').classList.add('open');
   document.getElementById('flavourContent').innerHTML=`
     <div style="font-size:14px;font-weight:700;margin-bottom:4px;">${s.name}</div>
-    <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:24px;">ADD PROTEIN?</div>
-    <button class="btn-primary" style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;text-align:center;" onclick="showFlavourStep(${id})">Yes ó add protein (+R20)</button>
+    <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:24px;">ADD PROTEIN</div>
+    <button class="btn-primary" style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;text-align:center;" onclick="showFlavourStep(${id})">Yes ‚Äì add protein (+R20)</button>
     <button style="width:100%;margin-bottom:10px;padding:14px;font-size:13px;background:#f0ede8;border:1px solid var(--border);border-radius:8px;color:var(--dark);font-weight:500;" onclick="addFlavourToCart(${id},null)">No thanks</button>
     <button style="width:100%;padding:12px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;text-align:center;" onclick="document.getElementById('flavourOverlay').classList.remove('open');unlockPage();">Cancel</button>`;
 }
@@ -252,9 +251,9 @@ function showFlavourStep(id){
     <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:8px;">CHOOSE FLAVOUR</div>
     <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:var(--gold);margin-bottom:20px;">+R20 protein added</div>
     ${s.flavours.map(f=>`
-      <button class="btn-primary" ${f==='Chocolate'?'disabled':''} style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;background:${f==='Chocolate'?'#4a2c1a':f==='Vanilla'?'#f3ead7':'#e8336b'};color:${f==='Vanilla'?'#3b3326':'#fff'};${f==='Chocolate'?'opacity:0.6;cursor:not-allowed;':''}" ${f==='Chocolate'?'':`onclick="addFlavourToCart(${id}, '${f}')"`}>${f==='Chocolate'?'Chocolate ó Coming Soon':f}</button>
+      <button class="btn-primary" ${f==='Chocolate'?'disabled':''} style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;background:${f==='Chocolate'?'#4a2c1a':f==='Vanilla'?'#f3ead7':'#e8336b'};color:${f==='Vanilla'?'#3b3326':'#fff'};${f==='Chocolate'?'opacity:0.6;cursor:not-allowed;':''}" ${f==='Chocolate'?'':`onclick="addFlavourToCart(${id}, '${f}')"`}>${f==='Chocolate'?'Chocolate ‚Äì Coming Soon':f}</button>
     `).join('')}
-    <button style="width:100%;padding:12px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;margin-top:4px;" onclick="showProteinStep(${id})">? Back</button>`;
+    <button style="width:100%;padding:12px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;margin-top:4px;" onclick="showProteinStep(${id})">‚Üê Back</button>`;
 }
 
 function removeFromCart(key){
@@ -290,8 +289,8 @@ function openModal(id){
   document.getElementById('mPrice').textContent=`R${s.price}`;
   document.getElementById('mHeaderPrice').textContent=`R${s.price}`;
   document.getElementById('mIngs').innerHTML=s.ingredients.map(i=>`<span class="ing-tag">${i}</span>`).join('');
-  document.getElementById('mBenefits').innerHTML=s.benefits.map(b=>`<span class="ing-tag" style="background:#e8f5e2;color:#1B4332;">? ${b}</span>`).join('');
-  document.getElementById('mAllergens').innerHTML=s.allergens.map(a=>`<span class="ing-tag" style="background:#fff3e0;color:#B8860B;">? ${a}</span>`).join('');
+  document.getElementById('mBenefits').innerHTML=s.benefits.map(b=>`<span class="ing-tag" style="background:#e8f5e2;color:#1B4332;">${b}</span>`).join('');
+  document.getElementById('mAllergens').innerHTML=s.allergens.map(a=>`<span class="ing-tag" style="background:#fff3e0;color:#B8860B;">${a}</span>`).join('');
   document.getElementById('mSizes').innerHTML=s.sizes.map(sz=>`<span class="ing-tag" style="${sz.includes('Coming Soon')?'opacity:0.4;':''}">${sz}</span>`).join('');
   document.getElementById('mNote').style.display=s.id===1?'block':'none';
   document.getElementById('mNutrition').innerHTML=`
@@ -351,7 +350,7 @@ function renderCheckoutItems(){
         <div class="checkout-item-left">
           <div>
             <div class="checkout-item-name">${s.name}${flavour?`<span class="checkout-item-flavour">${flavour}</span>`:''}</div>
-            <div class="checkout-item-meta">R${s.price}${flavour?` ∑ +R${cartPrices[key]-s.price} protein`:''}</div>
+            <div class="checkout-item-meta">R${s.price}${flavour?` ¬∑ +R${cartPrices[key]-s.price} protein`:''}</div>
           </div>
         </div>
         <div class="checkout-qty-ctrl">
@@ -389,16 +388,15 @@ function selectPay(method){
 }
 function selectPickup(option){
   selectedPickup=option;
-  document.querySelectorAll('.pickup-opt').forEach(button=>button.classList.remove('active'));
-  const buttonMap={home:'pickupHome',friday:'pickupFriday',delivery:'pickupDelivery'};
-  document.getElementById(buttonMap[option]).classList.add('active');
-  document.getElementById('deliveryFields').style.display=option==='delivery'?'block':'none';
+  document.querySelectorAll('.pickup-opt').forEach(button=>{
+    const active=button.id===({home:'pickupHome',friday:'pickupFriday',delivery:'pickupDelivery'})[option];
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  });
+  document.getElementById('deliveryFields').hidden=option!=='delivery';
   if(option!=='delivery'){
-    deliveryDistance='';
-    deliveryFee=0;
-    deliveryQuoteChecked=false;
-    document.getElementById('deliveryResult').textContent='';
     document.getElementById('deliveryZone').value='';
+    updateDeliveryZone();
   }
   updatePriceBreakdown();
   updateOrderTotal();
@@ -406,6 +404,7 @@ function selectPickup(option){
 }
 function updateOrderTotal(){
   const total=cartTotal()+deliveryFee;
+  document.getElementById('checkoutTotalLabel').textContent=selectedPickup==='delivery'&&!deliveryQuoteChecked?'Subtotal (delivery not included)':'Order total';
   document.getElementById('checkoutTotal').textContent=`R${total}`;
   updatePriceBreakdown();
 }
@@ -416,27 +415,27 @@ function updatePriceBreakdown(){
   breakdown.hidden=!visible;
   if(!visible)return;
   document.getElementById('subtotalAmount').textContent=`R${cartTotal()}`;
-  document.getElementById('distanceAmount').textContent=deliveryZone;
+  document.getElementById('distanceAmount').textContent=deliveryDistance;
   document.getElementById('deliveryFeeAmount').textContent=`R${deliveryFee}`;
   document.getElementById('finalTotalAmount').textContent=`R${cartTotal()+deliveryFee}`;
 }
 function updatePickupNote(){
   const pickupLabels={home:'Home pickup',friday:'Friday collection',delivery:'Delivery'};
-  const paymentText=selectedPayment==='eft'?'Pay by EFT before collection':'Pay on collection';
-  const feeText=selectedPickup==='delivery'&&deliveryQuoteChecked?` + R${deliveryFee} delivery`:'';
+  const paymentText=selectedPayment==='eft'?'Pay by EFT before collection or delivery':selectedPickup==='delivery'?'Pay on delivery':'Pay on collection';
+  const feeText=selectedPickup==='delivery'?(deliveryQuoteChecked?` + R${deliveryFee} delivery`:' - select delivery area'):'';
   document.getElementById('pickupNote').textContent=`${pickupLabels[selectedPickup]}${feeText} - ${paymentText}`;
+  document.getElementById('cashChoiceDetail').textContent=selectedPickup==='delivery'?'Pay on delivery':'Pay on collection';
+  document.getElementById('cashInstructions').innerHTML=selectedPickup==='delivery'
+    ? '<strong>Cash on delivery.</strong> Bring exact change if possible.'
+    : '<strong>Cash at pickup.</strong> Bring exact change if possible and look for the cooler box.';
 }
 function updateDeliveryZone(){
-  const zone=document.getElementById('deliveryZone').value;
-  const result=document.getElementById('deliveryResult');
-  const fees={near:15,mid:25,far:35};
-  const labels={near:'Nearby area',mid:'Local area',far:'Outer area'};
-  deliveryZone=zone?labels[zone]:'';
-  deliveryFee=fees[zone]||0;
+  const zones={near:{label:'Nearby area',fee:15},mid:{label:'Local area',fee:25},far:{label:'Outer area',fee:35}};
+  const zone=zones[document.getElementById('deliveryZone').value];
+  deliveryDistance=zone?zone.label:'';
+  deliveryFee=zone?zone.fee:0;
   deliveryQuoteChecked=Boolean(zone);
-  result.textContent=zone
-    ? `Delivery fee set at R${deliveryFee} for your selected area.`
-    : 'Select your delivery area to see the fee.';
+  document.getElementById('deliveryResult').textContent=zone?`Delivery fee: R${zone.fee}. We'll check your address.`:'';
   updateOrderTotal();
   updatePickupNote();
 }
@@ -452,12 +451,14 @@ function placeOrder(){
   if(cartCount()===0)return;
   const address=document.getElementById('checkoutAddress').value.trim();
   const phone=document.getElementById('checkoutPhone').value.trim();
-  if(selectedPickup==='delivery'&&!deliveryQuoteChecked){
-    document.getElementById('deliveryResult').textContent='Select your delivery area before placing your order.';
+  if(selectedPickup==='delivery'&&!address){
+    document.getElementById('deliveryResult').textContent='Enter your delivery address first.';
+    document.getElementById('checkoutAddress').focus();
     return;
   }
-  if(selectedPickup==='delivery'&&!address){
-    document.getElementById('checkoutAddress').focus();
+  if(selectedPickup==='delivery'&&!deliveryQuoteChecked){
+    document.getElementById('deliveryResult').textContent='Select your delivery area before placing your order.';
+    document.getElementById('deliveryZone').focus();
     return;
   }
   const btn=document.getElementById('placeOrderBtn');
@@ -473,17 +474,16 @@ function placeOrder(){
     total:cartTotal()+deliveryFee,
     payment:selectedPayment,
     pickup:selectedPickup,
-    deliveryDistance:deliveryZone,
+    deliveryDistance,
     deliveryFee,
-    phone,
-    address,
+    phone:selectedPickup==='delivery'?phone:'',
+    address:selectedPickup==='delivery'?address:'',
     timestamp:new Date().toISOString(),
   };
   const itemsSummary=order.items.map(i=>`${i.name} x${i.qty}`).join(', ');
-  fetch(SHEETS_URL,{
+  fetch('/.netlify/functions/order',{
     method:'POST',
-    mode:'no-cors',
-    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    headers:{'Content-Type':'application/json'},
     body:JSON.stringify({
       id:order.id,
       name:order.name,
@@ -496,47 +496,55 @@ function placeOrder(){
       phone:order.phone,
       address:order.address
     })
-  }).then(()=>{
+  }).then(async response=>{
+    if(!response.ok)throw new Error('Order request failed');
+    const result=await response.json();
+    if(result.success!==true)throw new Error('Order was not saved');
     cart={};cartPrices={};
     updateCartUI();
+    renderMenu();
+    document.getElementById('checkoutItems').innerHTML='';
     closeCheckoutDirect();
     document.getElementById('checkoutName').value='';
     document.getElementById('checkoutAddress').value='';
     document.getElementById('checkoutPhone').value='';
-    btn.textContent='Place order ?';btn.disabled=false;
+    btn.textContent='Place order ‚Üí';btn.disabled=false;
     showConfirmation(order);
   }).catch(()=>{
-    btn.textContent='Place order ?';btn.disabled=false;
-    alert('Could not send your order. Check your connection and try again.');
+    btn.textContent='Place order ‚Üí';btn.disabled=false;
+    alert('We could not confirm your order. Please contact BlendClub before trying again to avoid a duplicate.');
   });
 }
 
 function showConfirmation(order){
+  const safeAddress=order.address.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[char]);
+  const safeName=order.name.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[char]);
   const items=order.items.map(i=>`
-    <div style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-size:14px;color:#F8F8F4;">${i.name} <span style="color:rgba(255,255,255,0.35);font-size:12px;">◊${i.qty}</span></span>
-      <span style="color:var(--gold);font-weight:700;font-family:'Manrope',Arial,sans-serif;">R${i.price*i.qty}</span>
+    <div class="confirmation-item">
+      <span>${i.name} <small>√ó${i.qty}</small></span>
+      <strong>R${i.price*i.qty}</strong>
     </div>`).join('');
   document.getElementById('confirmationOverlay').classList.add('open');
   document.getElementById('confirmationContent').innerHTML=`
-    <div style="font-size:48px;margin-bottom:12px;">?</div>
-    <div style="font-size:22px;font-weight:700;margin-bottom:4px;color:#F8F8F4;">Order placed.</div>
-    <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;margin-bottom:24px;">ORDER RECEIVED</div>
-    <div style="background:rgba(0,0,0,0.3);border-radius:10px;padding:16px;margin-bottom:16px;text-align:left;">${items}
-      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;">
-        <span style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;">TOTAL</span>
-        <span style="font-size:24px;font-weight:700;color:var(--gold);">R${order.total}</span>
-      </div>
+    <div class="confirmation-mark" aria-hidden="true">‚úì</div>
+    <p class="confirmation-eyebrow">Order received</p>
+    <h2 class="confirmation-title">Thanks, ${safeName}.</h2>
+    <p class="confirmation-intro">Your BlendClub order has been placed and is ready to be prepared.</p>
+    <div class="confirmation-receipt">
+      <div class="confirmation-receipt-heading"><span>Your order</span><span>#${String(order.id).slice(-6)}</span></div>
+      ${items}
+      <div class="confirmation-total"><span>Total</span><strong>R${order.total}</strong></div>
     </div>
-    <div style="background:rgba(27,67,50,0.3);border:1px solid rgba(82,183,136,0.2);border-radius:10px;padding:16px;margin-bottom:20px;text-align:left;">
-      <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;margin-bottom:10px;">PICKUP INFO</div>
-      <div style="font-size:13px;line-height:2;color:rgba(255,255,255,0.6);">
-        ${order.pickup==='delivery'?`Delivery to: ${order.address}<br/>Area: ${order.deliveryDistance}<br/>Delivery fee: R${order.deliveryFee}`:order.pickup==='friday'?'Friday collection':'Collection from Juju'}<br/>
-        ${order.payment==='eft'?'EFT - send proof via WhatsApp':'Cash at collection'}
-      </div>
+    <div class="confirmation-next">
+      <p class="confirmation-section-title">What happens next</p>
+      <p>
+        ${order.pickup==='delivery'?`Delivery to: ${safeAddress}<br/>Delivery area: ${order.deliveryDistance}<br/>Delivery fee: R${order.deliveryFee}`:order.pickup==='friday'?'Friday collection':'Collection from Juju'}<br/>
+        ${order.payment==='eft'?'Please pay by EFT and send proof via WhatsApp.':order.pickup==='delivery'?'Cash on delivery.':'Pay cash at collection.'}
+      </p>
+      ${order.payment==='eft'?`<div class="confirmation-bank"><strong>EFT details</strong><span>FNB ¬∑ J Cedrass</span><span>Acc (Easy): 63053860087</span><span>Branch: 210046 ¬∑ Ref: ${safeName}</span></div>`:''}
     </div>
-    <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;margin-bottom:16px;">?? SCREENSHOT AS YOUR RECEIPT</div>
-    <button class="btn-primary" style="width:100%;padding:14px;border-radius:8px;" onclick="document.getElementById('confirmationOverlay').classList.remove('open')">Done</button>`;
+    <p class="confirmation-note">Screenshot this page as your receipt.</p>
+    <button class="btn-primary confirmation-done" onclick="document.getElementById('confirmationOverlay').classList.remove('open');smoothScrollTo('top')">Done</button>`;
 }
 
 // Inline event handlers in the HTML and generated cards need these module functions.
