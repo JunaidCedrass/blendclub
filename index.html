@@ -9,36 +9,50 @@
 <link rel="icon" href="assets/images/blendclub-logo.png" type="image/png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/style.css?v=20260915-mobile-ingredients"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/style.css?v=20261119-clear-cups"/>
 </head>
 <body>
 
 <!-- SKIP LINK -->
 <a href="#menu" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.cssText='position:fixed;top:0;left:0;width:auto;height:auto;padding:8px 16px;background:var(--gold);color:#fff;z-index:9999;font-size:14px;'">Skip to menu</a>
 
+<!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-lockup" href="#top" aria-label="BlendClub home">
+        <img src="assets/images/blendclub-logo-badge.png" alt="BlendClub smoothie bar logo" width="52" height="52"/>
+        <span class="brand-text">
+          <span class="brand-wordmark">Blend<span>Club</span></span>
+          <span class="brand-note">Smoothie bar</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#menu">Menu</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="header-cta" href="#menu">Order now</a>
+    </div>
+  </header>
+
 <!-- HERO -->
 <section class="hero" id="top" aria-label="Hero">
-  <header class="site-header">
-    <a class="brand-lockup" href="#top" aria-label="BlendClub home">
-      <img src="assets/images/blendclub-logo.png" alt="BlendClub smoothie bar logo" width="46" height="46"/>
-      <span class="brand-wordmark">Blend<span>Club.</span></span>
-    </a>
-    <span class="brand-note">FRESH FUEL, YOUR WAY</span>
-  </header>
   <div class="hero-shell">
   <div class="hero-inner">
-    <p class="hero-label">Cape Town · Est. 2026</p>
-    <h1 class="hero-title">Smoothies<br><span class="accent">with purpose.</span></h1>
-    <p class="hero-sub">Fruit-led blends, practical nutrition, and fresh ingredients timed around your day.</p>
-    <div class="hero-nutrition-points" aria-label="Smoothie nutrition highlights">
-      <span>Fruit-led</span><span>Protein-ready</span><span>Freshly blended</span>
+    <div class="hero-kicker">
+      <img src="assets/images/blendclub-logo-badge.png" alt="" width="44" height="44"/>
+      <p class="hero-label">Fresh blends. Real fuel.</p>
     </div>
+    <h1 class="hero-title">Blend<br><span class="accent">Club</span></h1>
+    <p class="hero-tagline">Fuel your day. Own your game.</p>
+    <div class="hero-rule" aria-hidden="true"></div>
+    <p class="hero-copy">Fresh smoothies blended for the moment — before training, after the game, or whenever you need the lift.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="smoothScrollTo('menu')">Choose your blend →</button>
       <button class="btn-ghost" onclick="smoothScrollTo('how')">How it works</button>
     </div>
-    <div class="hero-stats">
+    <div class="hero-stats" hidden>
       <div>
         <div class="stat-num">3</div>
         <div class="stat-label">Blends</div>
@@ -54,19 +68,12 @@
     </div>
   </div>
   <div class="hero-art" aria-label="BlendClub brand mark">
-    <img src="assets/images/blendclub-logo.png" alt="BlendClub smoothie bar logo" width="512" height="512"/>
+    <img src="assets/images/blendclub-logo-badge.png" alt="BlendClub smoothie bar logo" width="578" height="578"/>
     <div class="hero-art-label"><span>BUILT FOR</span><strong>YOUR DAY</strong></div>
     <div class="hero-stamp">FRESH<br>BLENDED<br>FIELD SIDE</div>
   </div>
   </div>
 </section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    Tropical Rush <span>✦</span> Game Fuel <span>✦</span> Recovery Crusher <span>✦</span> Tropical Rush <span>✦</span> Game Fuel <span>✦</span> Recovery Crusher <span>✦</span> Tropical Rush <span>✦</span> Game Fuel <span>✦</span> Recovery Crusher <span>✦</span>
-  </div>
-</div>
 
 <!-- TAGLINE REVEAL -->
 <section class="tagline-section" aria-label="Mission statement">
@@ -142,7 +149,7 @@
       <div class="step reveal">
         <div class="step-num">03</div>
         <div class="step-title">Choose your pickup</div>
-        <div class="step-desc">Collect from home, meet us at Friday Touchies, or choose delivery to your address.</div>
+        <div class="step-desc">Collect from home, pick up on Friday, or choose delivery to your address.</div>
       </div>
       <div class="step reveal">
         <div class="step-num">04</div>
@@ -162,7 +169,7 @@
   <div id="faqList">
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)">What days can I pick up?<span class="faq-icon">+</span></div>
-      <div class="faq-a">Choose home pickup, Friday Touchies collection, or delivery when you place your order.</div>
+      <div class="faq-a">Choose home pickup, Friday collection, or delivery when you place your order.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)">When do orders close?<span class="faq-icon">+</span></div>
@@ -174,7 +181,7 @@
     </div>
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)">What does the protein add-on include?<span class="faq-icon">+</span></div>
-      <div class="faq-a">A full scoop of Biogen Premium Iso-Whey in your choice of Chocolate or Strawberry. Adds roughly 18-21g of protein to your smoothie.</div>
+      <div class="faq-a">A full scoop of Biogen Premium Iso-Whey in your choice of Strawberry or Vanilla. Chocolate is coming soon. Adds roughly 18-21g of protein to your smoothie.</div>
     </div>
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)">Are the smoothies made fresh?<span class="faq-icon">+</span></div>
@@ -189,16 +196,23 @@
 
 <!-- FINAL CTA -->
 <section class="cta-section" aria-label="Order call to action">
+  <img class="cta-logo" src="assets/images/blendclub-logo-badge.png" alt="" width="96" height="96"/>
   <p class="section-tag reveal">Ready?</p>
   <h2 class="cta-title reveal">Your smoothie is<br>ready when you are.</h2>
-  <p class="cta-sub reveal">Pre-order for home pickup, Friday Touchies, or local delivery.</p>
+  <p class="cta-sub reveal">Pre-order for home pickup, Friday collection, or local delivery.</p>
   <button class="btn-primary reveal" onclick="smoothScrollTo('menu')" style="margin:0 auto;">See the menu →</button>
   <p class="cta-note reveal">Freshly blended for collection or delivery</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo"><img src="assets/images/blendclub-logo.png" alt="" width="28" height="28"/>BLEND<span>CLUB</span></span>
+  <a class="footer-logo" href="#top" aria-label="BlendClub home">
+    <img src="assets/images/blendclub-logo-badge.png" alt="" width="42" height="42"/>
+    <span class="footer-brand-text">
+      <span class="footer-brand-wordmark">Blend<span>Club</span></span>
+      <span class="footer-brand-note">Smoothie bar</span>
+    </span>
+  </a>
   <span class="footer-right">JujuB · Est. 2026 · Cape Town</span>
 </footer>
 
@@ -286,9 +300,9 @@
       <span class="checkout-choice-detail">Collect from Juju</span>
     </button>
 
-    <button type="button" class="pickup-opt" id="pickupTouchies"
-      onclick="selectPickup('touchies')">
-      <span class="checkout-choice-title">Friday Touchies</span>
+    <button type="button" class="pickup-opt" id="pickupFriday"
+      onclick="selectPickup('friday')">
+      <span class="checkout-choice-title">Friday collection</span>
       <span class="checkout-choice-detail">Collect on Friday</span>
     </button>
 
@@ -340,7 +354,7 @@
       </fieldset>
 
       <div class="payment-notice payment-notice--cash" id="cashInstructions"><strong>Cash at pickup.</strong> Bring exact change if possible and look for the cooler box.</div>
-      <div class="payment-notice payment-notice--eft" id="eftInstructions" style="display:none;"><strong>EFT before pickup.</strong><span class="bank-detail">FNB · J Cedrass<br/>Acc: 63053860087 · Ref: Your name</span>Send proof of payment via WhatsApp after ordering.</div>
+      <div class="payment-notice payment-notice--eft" id="eftInstructions" style="display:none;"><strong>EFT before pickup.</strong><span class="bank-detail">FNB · J Cedrass<br/>Acc: 909341 · Ref: Your name</span>Send proof of payment via WhatsApp after ordering.</div>
 
       <button id="placeOrderBtn" class="btn-primary checkout-submit" onclick="placeOrder()">Place order →</button>
       <p class="checkout-note" id="pickupNote">Home pickup · Pay on collection</p>
@@ -363,6 +377,6 @@
   </div>
 </div>
 
-<script src="assets/js/main.js?v=20260915-mobile-menu-fix" defer></script>
+<script src="assets/js/main.js?v=20261119-product-first" defer></script>
 </body>
 </html>

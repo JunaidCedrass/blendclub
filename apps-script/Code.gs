@@ -21,8 +21,12 @@ function doGet(e) {
 }
 
 function doPost(e) {
-  var data = JSON.parse(e.postData.contents);
-  return saveOrder(data);
+  try {
+    var data = JSON.parse(e.postData.contents);
+    return saveOrder(data);
+  } catch (err) {
+    return jsonResponse({ success: false, message: String(err) });
+  }
 }
 
 function calculateDelivery(address) {
@@ -90,9 +94,13 @@ function calculateDelivery(address) {
 }
 
 function saveOrder(data) {
-  var sheet = SpreadsheetApp
-    .getActiveSpreadsheet()
-    .getSheetByName('Orders');
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = spreadsheet.getSheetByName('Orders');
+
+  if (!sheet) {
+    sheet = spreadsheet.insertSheet('Orders');
+    sheet.appendRow(['Timestamp', 'Order ID', 'Name', 'Items', 'Total', 'Payment', 'Pickup', 'Delivery Area', 'Delivery Fee', 'Phone', 'Address']);
+  }
 
   sheet.appendRow([
     new Date(),

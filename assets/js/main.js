@@ -1,4 +1,4 @@
-Ôªø/* UTILS */
+/* UTILS */
 function smoothScrollTo(id) {
   const target = document.getElementById(id);
   if (!target) return;
@@ -48,31 +48,31 @@ const smoothies = [
     benefits:["Immune boost from Vitamin C","Aids digestion","Natural hydration"],
     allergens:["Dairy"],
     sizes:["350ml","500ml (Coming Soon)"],
-    nutrition:{protein:"5-7g",sugar:"22-25g",calories:"200‚Äì230 kcal",carbs:"30‚Äì35g",fat:"3‚Äì4g",purpose:"General health drink"},
+    nutrition:{protein:"5-7g",sugar:"22-25g",calories:"200ñ230 kcal",carbs:"30ñ35g",fat:"3ñ4g",purpose:"General health drink"},
     color:"#B8860B",cls:"card-c1" },
   { id:1,
-    timing:"60‚Äì90 min before training/kickoff",
+    timing:"60ñ90 min before training/kickoff",
     name:"Game Fuel",
     tagline:"Fast carbs. Fast start.",
     price:40, proteinPrice:20,
-    flavours:["Chocolate","Strawberry"],
+    flavours:["Strawberry","Vanilla","Chocolate"],
     ingredients:["Banana","Oats","Honey","Milk","Dates","Beta-Alanine"],
     benefits:["Fast-release energy","Delays muscle fatigue","Sustained performance"],
     allergens:["Dairy","Gluten"],
     sizes:["350ml","500ml (Coming Soon)"],
-    nutrition:{protein:"14g base / 24g with protein","sugar":"12‚Äì15g",calories:"320‚Äì375 kcal",carbs:"30‚Äì35g",fat:"8‚Äì10g",purpose:"Pre-training energy"},
+    nutrition:{protein:"14g base / 24g with protein","sugar":"12ñ15g",calories:"320ñ375 kcal",carbs:"30ñ35g",fat:"8ñ10g",purpose:"Pre-training energy"},
     color:"#B8860B",cls:"card-c2" },
   { id:2,
     timing:"Within 30 min post-training/match",
     name:"Recovery Crusher",
     tagline:"Rebuild. Reload. Repeat.",
     price:45, proteinPrice:20,
-    flavours:["Chocolate","Strawberry"],
+    flavours:["Strawberry","Vanilla","Chocolate"],
     ingredients:["Banana","Frozen Berries","Greek Yoghurt","Milk","Peanut Butter"],
     benefits:["Muscle repair and growth","Replenishes energy stores","Reduces post-training soreness"],
     allergens:["Dairy","Peanuts"],
     sizes:["350ml","500ml (Coming Soon)"],
-    nutrition:{protein:"30‚Äì33g",sugar:"13‚Äì15g",calories:"360‚Äì400 kcal",carbs:"25‚Äì30g",fat:"8‚Äì10g",purpose:"Muscle repair and recovery"},
+    nutrition:{protein:"30ñ33g",sugar:"13ñ15g",calories:"360ñ400 kcal",carbs:"25ñ30g",fat:"8ñ10g",purpose:"Muscle repair and recovery"},
     color:"#B8860B",cls:"card-c3" },
 ];
 
@@ -137,9 +137,12 @@ function renderMenu(){
           <div class="card-ingredients" aria-label="Ingredients">${s.ingredients.map((ingredient,index)=>`<span class="ing-tag ingredient-chip ingredient-chip--${index+1}">${ingredient}</span>`).join('')}</div>
           <div class="card-footer">
             <div class="card-price">R${s.price}</div>
-            <button class="card-order-btn" onclick="event.stopPropagation();addToCart(${s.id})" aria-label="Add ${s.name} to order">
-              ${qty>0?`‚úì Added (${qty})`:'+ Add'}
-            </button>
+            <div class="card-actions">
+              <button class="card-details-btn" type="button" onclick="event.stopPropagation();openModal(${s.id})" aria-label="View ${s.name} ingredients and details">View blend <span aria-hidden="true">‚Üí</span></button>
+              <button class="card-order-btn" onclick="event.stopPropagation();addToCart(${s.id})" aria-label="Add ${s.name} to order">
+                ${qty>0?`Added (${qty})`:'+ Add'}
+              </button>
+            </div>
           </div>
         </div>
       </div>`;
@@ -236,8 +239,8 @@ function showProteinStep(id){
   document.getElementById('flavourOverlay').classList.add('open');
   document.getElementById('flavourContent').innerHTML=`
     <div style="font-size:14px;font-weight:700;margin-bottom:4px;">${s.name}</div>
-    <div style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:24px;">ADD PROTEIN?</div>
-    <button class="btn-primary" style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;text-align:center;" onclick="showFlavourStep(${id})">Yes ‚Äî add protein (+R20)</button>
+    <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:24px;">ADD PROTEIN?</div>
+    <button class="btn-primary" style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;text-align:center;" onclick="showFlavourStep(${id})">Yes ó add protein (+R20)</button>
     <button style="width:100%;margin-bottom:10px;padding:14px;font-size:13px;background:#f0ede8;border:1px solid var(--border);border-radius:8px;color:var(--dark);font-weight:500;" onclick="addFlavourToCart(${id},null)">No thanks</button>
     <button style="width:100%;padding:12px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;text-align:center;" onclick="document.getElementById('flavourOverlay').classList.remove('open');unlockPage();">Cancel</button>`;
 }
@@ -246,12 +249,12 @@ function showFlavourStep(id){
   const s=smoothies.find(s=>s.id==id);
   document.getElementById('flavourContent').innerHTML=`
     <div style="font-size:14px;font-weight:700;margin-bottom:4px;">${s.name}</div>
-    <div style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:8px;">CHOOSE FLAVOUR</div>
-    <div style="font-family:'Geist Mono',monospace;font-size:10px;color:var(--gold);margin-bottom:20px;">+R20 protein added</div>
+    <div style="font-family:'Manrope',Arial,sans-serif;font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:8px;">CHOOSE FLAVOUR</div>
+    <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:var(--gold);margin-bottom:20px;">+R20 protein added</div>
     ${s.flavours.map(f=>`
-      <button class="btn-primary" style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;background:${f==='Chocolate'?'#4a2c1a':'#e8336b'};" onclick="addFlavourToCart(${id},'${f}')">${f}</button>
+      <button class="btn-primary" ${f==='Chocolate'?'disabled':''} style="width:100%;margin-bottom:10px;padding:14px;border-radius:8px;background:${f==='Chocolate'?'#4a2c1a':f==='Vanilla'?'#f3ead7':'#e8336b'};color:${f==='Vanilla'?'#3b3326':'#fff'};${f==='Chocolate'?'opacity:0.6;cursor:not-allowed;':''}" ${f==='Chocolate'?'':`onclick="addFlavourToCart(${id}, '${f}')"`}>${f==='Chocolate'?'Chocolate ó Coming Soon':f}</button>
     `).join('')}
-    <button style="width:100%;padding:12px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;margin-top:4px;" onclick="showProteinStep(${id})">‚Üê Back</button>`;
+    <button style="width:100%;padding:12px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:12px;margin-top:4px;" onclick="showProteinStep(${id})">? Back</button>`;
 }
 
 function removeFromCart(key){
@@ -285,35 +288,36 @@ function openModal(id){
   document.getElementById('mTagline').textContent=s.tagline;
   document.getElementById('mTiming').textContent=s.timing;
   document.getElementById('mPrice').textContent=`R${s.price}`;
+  document.getElementById('mHeaderPrice').textContent=`R${s.price}`;
   document.getElementById('mIngs').innerHTML=s.ingredients.map(i=>`<span class="ing-tag">${i}</span>`).join('');
-  document.getElementById('mBenefits').innerHTML=s.benefits.map(b=>`<span class="ing-tag" style="background:#e8f5e2;color:#1B4332;">‚úì ${b}</span>`).join('');
-  document.getElementById('mAllergens').innerHTML=s.allergens.map(a=>`<span class="ing-tag" style="background:#fff3e0;color:#B8860B;">‚ö† ${a}</span>`).join('');
+  document.getElementById('mBenefits').innerHTML=s.benefits.map(b=>`<span class="ing-tag" style="background:#e8f5e2;color:#1B4332;">? ${b}</span>`).join('');
+  document.getElementById('mAllergens').innerHTML=s.allergens.map(a=>`<span class="ing-tag" style="background:#fff3e0;color:#B8860B;">? ${a}</span>`).join('');
   document.getElementById('mSizes').innerHTML=s.sizes.map(sz=>`<span class="ing-tag" style="${sz.includes('Coming Soon')?'opacity:0.4;':''}">${sz}</span>`).join('');
   document.getElementById('mNote').style.display=s.id===1?'block':'none';
   document.getElementById('mNutrition').innerHTML=`
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
       <div style="background:#f9f5ed;border-radius:6px;padding:10px;text-align:center;">
-        <div style="font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">PROTEIN</div>
+        <div style="font-family:'Manrope',Arial,sans-serif;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">PROTEIN</div>
         <div style="font-size:15px;font-weight:700;color:var(--green);">${s.nutrition.protein}</div>
       </div>
       <div style="background:#f9f5ed;border-radius:6px;padding:10px;text-align:center;">
-        <div style="font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">CALORIES</div>
+        <div style="font-family:'Manrope',Arial,sans-serif;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">CALORIES</div>
         <div style="font-size:15px;font-weight:700;color:var(--green);">${s.nutrition.calories}</div>
       </div>
       <div style="background:#f9f5ed;border-radius:6px;padding:10px;text-align:center;">
-        <div style="font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">CARBS</div>
+        <div style="font-family:'Manrope',Arial,sans-serif;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">CARBS</div>
         <div style="font-size:15px;font-weight:700;color:var(--green);">${s.nutrition.carbs}</div>
       </div>
       <div style="background:#f9f5ed;border-radius:6px;padding:10px;text-align:center;">
-        <div style="font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">SUGAR</div>
+        <div style="font-family:'Manrope',Arial,sans-serif;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">SUGAR</div>
         <div style="font-size:15px;font-weight:700;color:var(--green);">${s.nutrition.sugar}</div>
       </div>
       <div style="background:#f9f5ed;border-radius:6px;padding:10px;text-align:center;grid-column:span 2;">
-        <div style="font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">FAT</div>
+        <div style="font-family:'Manrope',Arial,sans-serif;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:4px;">FAT</div>
         <div style="font-size:15px;font-weight:700;color:var(--green);">${s.nutrition.fat}</div>
       </div>
     </div>
-    <div style="font-family:'Geist Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px;letter-spacing:1px;">* Approximate values based on recipe quantities</div>`;
+    <div style="font-family:'Manrope',Arial,sans-serif;font-size:9px;color:var(--muted);margin-top:8px;letter-spacing:1px;">* Approximate values based on recipe quantities</div>`;
   document.getElementById('modalOverlay').classList.add('open');
   document.getElementById('modalCloseBtn').style.display='flex';
 }
@@ -347,7 +351,7 @@ function renderCheckoutItems(){
         <div class="checkout-item-left">
           <div>
             <div class="checkout-item-name">${s.name}${flavour?`<span class="checkout-item-flavour">${flavour}</span>`:''}</div>
-            <div class="checkout-item-meta">R${s.price}${flavour?` √Ç¬∑ +R${cartPrices[key]-s.price} protein`:''}</div>
+            <div class="checkout-item-meta">R${s.price}${flavour?` ∑ +R${cartPrices[key]-s.price} protein`:''}</div>
           </div>
         </div>
         <div class="checkout-qty-ctrl">
@@ -386,7 +390,7 @@ function selectPay(method){
 function selectPickup(option){
   selectedPickup=option;
   document.querySelectorAll('.pickup-opt').forEach(button=>button.classList.remove('active'));
-  const buttonMap={home:'pickupHome',touchies:'pickupTouchies',delivery:'pickupDelivery'};
+  const buttonMap={home:'pickupHome',friday:'pickupFriday',delivery:'pickupDelivery'};
   document.getElementById(buttonMap[option]).classList.add('active');
   document.getElementById('deliveryFields').style.display=option==='delivery'?'block':'none';
   if(option!=='delivery'){
@@ -417,7 +421,7 @@ function updatePriceBreakdown(){
   document.getElementById('finalTotalAmount').textContent=`R${cartTotal()+deliveryFee}`;
 }
 function updatePickupNote(){
-  const pickupLabels={home:'Home pickup',touchies:'Friday Touchies',delivery:'Delivery'};
+  const pickupLabels={home:'Home pickup',friday:'Friday collection',delivery:'Delivery'};
   const paymentText=selectedPayment==='eft'?'Pay by EFT before collection':'Pay on collection';
   const feeText=selectedPickup==='delivery'&&deliveryQuoteChecked?` + R${deliveryFee} delivery`:'';
   document.getElementById('pickupNote').textContent=`${pickupLabels[selectedPickup]}${feeText} - ${paymentText}`;
@@ -476,52 +480,62 @@ function placeOrder(){
     timestamp:new Date().toISOString(),
   };
   const itemsSummary=order.items.map(i=>`${i.name} x${i.qty}`).join(', ');
- fetch(SHEETS_URL,{
-  method:'POST',
-  mode:'no-cors',
-  headers:{
-    'Content-Type':'text/plain;charset=utf-8'
-  },
-  body:JSON.stringify({
-    id:order.id,
-    name:order.name,
-    items:itemsSummary,
-    total:order.total,
-    payment:order.payment,
-    pickup:order.pickup,
-    deliveryDistance:order.deliveryDistance,
-    deliveryFee:order.deliveryFee,
-    phone:order.phone,
-    address:order.address
-  })
-});
+  fetch(SHEETS_URL,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify({
+      id:order.id,
+      name:order.name,
+      items:itemsSummary,
+      total:order.total,
+      payment:order.payment,
+      pickup:order.pickup,
+      deliveryDistance:order.deliveryDistance,
+      deliveryFee:order.deliveryFee,
+      phone:order.phone,
+      address:order.address
+    })
+  }).then(()=>{
+    cart={};cartPrices={};
+    updateCartUI();
+    closeCheckoutDirect();
+    document.getElementById('checkoutName').value='';
+    document.getElementById('checkoutAddress').value='';
+    document.getElementById('checkoutPhone').value='';
+    btn.textContent='Place order ?';btn.disabled=false;
+    showConfirmation(order);
+  }).catch(()=>{
+    btn.textContent='Place order ?';btn.disabled=false;
+    alert('Could not send your order. Check your connection and try again.');
+  });
 }
 
 function showConfirmation(order){
   const items=order.items.map(i=>`
     <div style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-size:14px;color:#F8F8F4;">${i.name} <span style="color:rgba(255,255,255,0.35);font-size:12px;">√É‚Äî${i.qty}</span></span>
-      <span style="color:var(--gold);font-weight:700;font-family:'Geist Mono',monospace;">R${i.price*i.qty}</span>
+      <span style="font-size:14px;color:#F8F8F4;">${i.name} <span style="color:rgba(255,255,255,0.35);font-size:12px;">◊${i.qty}</span></span>
+      <span style="color:var(--gold);font-weight:700;font-family:'Manrope',Arial,sans-serif;">R${i.price*i.qty}</span>
     </div>`).join('');
   document.getElementById('confirmationOverlay').classList.add('open');
   document.getElementById('confirmationContent').innerHTML=`
-    <div style="font-size:48px;margin-bottom:12px;">√¢≈ì‚Ä¶</div>
+    <div style="font-size:48px;margin-bottom:12px;">?</div>
     <div style="font-size:22px;font-weight:700;margin-bottom:4px;color:#F8F8F4;">Order placed.</div>
-    <div style="font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;margin-bottom:24px;">ORDER RECEIVED</div>
+    <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;margin-bottom:24px;">ORDER RECEIVED</div>
     <div style="background:rgba(0,0,0,0.3);border-radius:10px;padding:16px;margin-bottom:16px;text-align:left;">${items}
       <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;">
-        <span style="font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;">TOTAL</span>
+        <span style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;">TOTAL</span>
         <span style="font-size:24px;font-weight:700;color:var(--gold);">R${order.total}</span>
       </div>
     </div>
     <div style="background:rgba(27,67,50,0.3);border:1px solid rgba(82,183,136,0.2);border-radius:10px;padding:16px;margin-bottom:20px;text-align:left;">
-      <div style="font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;margin-bottom:10px;">PICKUP INFO</div>
+      <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:2px;margin-bottom:10px;">PICKUP INFO</div>
       <div style="font-size:13px;line-height:2;color:rgba(255,255,255,0.6);">
-        ${order.pickup==='delivery'?`Delivery to: ${order.address}<br/>Area: ${order.deliveryDistance}<br/>Delivery fee: R${order.deliveryFee}`:order.pickup==='touchies'?'Collection at Friday Touchies':'Collection from Juju'}<br/>
+        ${order.pickup==='delivery'?`Delivery to: ${order.address}<br/>Area: ${order.deliveryDistance}<br/>Delivery fee: R${order.deliveryFee}`:order.pickup==='friday'?'Friday collection':'Collection from Juju'}<br/>
         ${order.payment==='eft'?'EFT - send proof via WhatsApp':'Cash at collection'}
       </div>
     </div>
-    <div style="font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;margin-bottom:16px;">√∞≈∏‚Äú¬∏ SCREENSHOT AS YOUR RECEIPT</div>
+    <div style="font-family:'Manrope',Arial,sans-serif;font-size:10px;color:rgba(255,255,255,0.25);letter-spacing:2px;margin-bottom:16px;">?? SCREENSHOT AS YOUR RECEIPT</div>
     <button class="btn-primary" style="width:100%;padding:14px;border-radius:8px;" onclick="document.getElementById('confirmationOverlay').classList.remove('open')">Done</button>`;
 }
 
